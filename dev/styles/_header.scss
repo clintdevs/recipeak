@@ -1,0 +1,49 @@
+.wrapper--header {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.5fr 3.5fr;
+  grid-template-rows: 1fr repeat(2, minmax(auto, 3fr)) 1fr;
+  grid-template-areas: 
+  "left top"
+  "left middle"
+  "left middle"
+  "left bottom";
+}
+
+.header__grid--a {
+  background: linear-gradient(to bottom, #585E6A, #444750, #515560);
+  grid-area: left;
+}
+
+.header__grid--b {
+  background-color: #F1CA55;
+  grid-area: top;
+} 
+
+h1 {
+  // font-size: 3em;
+  color: #585E6A;
+  display: inline;
+
+  span {
+    color: white;
+  }
+}
+
+h4 {
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+.header__grid--c {
+  background-color: #FFFFFF;
+  grid-area: middle;
+}
+
+.header__grid--d {
+  background: linear-gradient(to bottom, #BC993D, #F1CA55);
+  grid-area: bottom;  
+}
