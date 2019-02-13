@@ -147,40 +147,128 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 0.5fr 3.5fr;
-  grid-template-rows: 1fr repeat(2, minmax(auto, 3fr)) 1fr;
-  grid-template-areas: "left top" "left middle" "left middle" "left bottom"; }
+  grid-template-columns: 0.8fr 3.5fr;
+  grid-template-rows: 1fr 3fr 3fr 1fr; }
+  @media (min-width: 1200px) {
+    .wrapper--header {
+      grid-template-columns: 0.5fr 0.5fr 3.5fr 3.5fr;
+      grid-template-rows: 1fr 3fr 3fr 1fr; } }
 
 .header__grid--a {
-  background: -webkit-gradient(linear, left top, left bottom, from(#585E6A), color-stop(#444750), to(#515560));
-  background: linear-gradient(to bottom, #585E6A, #444750, #515560);
-  grid-area: left; }
+  background: #232320;
+  grid-column: 1/2;
+  grid-row: 1/2, 4/5; }
+  @media (min-width: 1200px) {
+    .header__grid--a {
+      grid-column: 1/3; } }
 
 .header__grid--b {
   background-color: #F1CA55;
-  grid-area: top; }
-
-h1 {
-  color: #585E6A;
-  display: inline; }
-  h1 span {
-    color: white; }
-
-h4 {
-  border: 1px solid black;
-  padding: 10px 20px;
-  border-radius: 30px;
-  display: inline-block; }
+  grid-column: 2/3;
+  grid-row: 1/2; }
+  @media (min-width: 1200px) {
+    .header__grid--b {
+      grid-column: 3/5; } }
 
 .header__grid--c {
   background-color: #FFFFFF;
-  grid-area: middle; }
+  grid-column: 2/3;
+  grid-row: 2/4; }
+  @media (min-width: 1200px) {
+    .header__grid--c {
+      grid-column: 3/4; } }
 
 .header__grid--d {
   background: -webkit-gradient(linear, left top, left bottom, from(#BC993D), to(#F1CA55));
   background: linear-gradient(to bottom, #BC993D, #F1CA55);
-  grid-area: bottom; }
+  grid-column: 2/3;
+  grid-row: 4/5; }
+  @media (min-width: 1200px) {
+    .header__grid--d {
+      grid-column: 3/5; } }
+
+.header__grid--e {
+  background-image: url(../../assets/macaroon.jpg);
+  background-size: contain; }
+  @media (max-width: 1200px) {
+    .header__grid--e {
+      display: none; } }
+  @media (min-width: 1200px) {
+    .header__grid--e {
+      grid-column: 4/5;
+      grid-row: 2/4; } }
+
+.header__grid--f {
+  background-color: #F1CA55;
+  grid-column: 1/2;
+  grid-row: 2/3; }
+  @media (min-width: 1200px) {
+    .header__grid--f {
+      grid-column: 2/3; } }
+
+.header__grid--g {
+  background-color: #585E6A;
+  grid-column: 1/2;
+  grid-row: 3/4; }
+  @media (min-width: 1200px) {
+    .header__grid--g {
+      grid-column: 2/3; } }
+
+.letter {
+  display: inline-block;
+  font-weight: 900;
+  position: relative;
+  color: #a9657b;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 400;
+          perspective: 400;
+  z-index: 1;
+  text-shadow: -1px 0 #a9657b, 0 1px #a9657b, 1px 0 #a9657b, 0 -1px #a9657b; }
+
+.letter--herosize {
+  font-size: 3em; }
+
+.letter--smallsize {
+  font-size: 1.5em; }
+
+.letter:before, .letter:after {
+  position: absolute;
+  content: attr(data-letter);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  top: 0;
+  left: 0; }
+
+.letter, .letter:before, .letter:after {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+.letter:before {
+  color: #fff;
+  text-shadow: -1px 0px 1px rgba(255, 255, 255, 0.8), 1px 0px 1px rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  -webkit-transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+          transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg); }
+
+.letter:after {
+  color: rgba(0, 0, 0, 0.11);
+  z-index: 2;
+  -webkit-transform: scale(1.08, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 1deg);
+          transform: scale(1.08, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 1deg); }
+
+.letter:hover:before {
+  color: #fafafa;
+  -webkit-transform: rotateX(0deg) rotateY(-70deg) rotateZ(0deg);
+          transform: rotateX(0deg) rotateY(-70deg) rotateZ(0deg); }
+
+.letter:hover:after {
+  -webkit-transform: scale(1.08, 1) rotateX(0deg) rotateY(70deg) rotateZ(0deg) skew(0deg, 22deg);
+          transform: scale(1.08, 1) rotateX(0deg) rotateY(70deg) rotateZ(0deg) skew(0deg, 22deg); }
 
 html {
   font-size: calc(1em + 1vw);
   font-family: 'Ubuntu', sans-serif; }
+
+img {
+  max-width: 100%; }
